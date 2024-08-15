@@ -5,6 +5,9 @@ from datetime import datetime
 import time
 from functools import lru_cache
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Dosyanın kaydedileceği dizini belirleyin
 save_directory = r"C:\Users\ST27\Desktop\AQI"
@@ -16,8 +19,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # API information
-API_URL = "https://api.waqi.info/feed/@4156/"
-API_TOKEN = "83f168835c2231fd6c1f205500eb392ca19525a4"
+API_URL = os.getenv("API_URL")
+API_TOKEN = os.getenv("API_TOKEN")
 
 # Wait 5 minutes between each request
 REQUEST_INTERVAL = 30  # in seconds
