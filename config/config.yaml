@@ -1,0 +1,22 @@
+api:
+  aqi_url: ${API_URL}
+  aqi_token: ${API_TOKEN}
+  carbon_url: ${CARBON_API_URL}
+  carbon_token: ${CARBON_API_TOKEN}
+
+location:
+  city_lat: ${CITY_LAT}
+  city_lon: ${CITY_LON}
+
+data_collection:
+  request_interval: 30
+  total_collection_time: 60
+
+output:
+  save_directory: "C:\\Users\\ST27\\Desktop\\AQI\\output"
+  filename: "sakarya_data.json"
+
+hopsworks:
+  project_name: "AQandCE"
+  feature_group_name: "sakarya_air_quality"
+  api_key: ${HOPSWORKS_API_KEY}
