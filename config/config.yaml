@@ -13,10 +13,10 @@ data_collection:
   total_collection_time: 60
 
 output:
-  save_directory: "C:\\Users\\ST27\\Desktop\\AQI\\output"
+  save_directory: ${SAVE_DIR}
   filename: "sakarya_data.json"
 
 hopsworks:
-  project_name: "AQandCE"
-  feature_group_name: "sakarya_air_quality"
+  project_name: ${HW_PROJECT_NAME}
+  feature_group_name: ${HW_FEATURE_GN}
   api_key: ${HOPSWORKS_API_KEY}
