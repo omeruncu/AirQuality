@@ -9,8 +9,8 @@ location:
   city_lon: ${CITY_LON}
 
 data_collection:
-  request_interval: 30
-  total_collection_time: 60
+  request_interval: 300 
+  total_collection_time: 1800 
 
 output:
   save_directory: ${SAVE_DIR}

@@ -1,0 +1,37 @@
+name: Data Pipeline
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Her saat başı çalıştır
+  workflow_dispatch:  # Manuel tetikleme için
+
+jobs:
+  run_data_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run data collection and processing
+      env:
+        API_URL: ${{ secrets.API_URL }}
+        API_TOKEN: ${{ secrets.API_TOKEN }}
+        CARBON_API_URL: ${{ secrets.CARBON_API_URL }}
+        CARBON_API_TOKEN: ${{ secrets.CARBON_API_TOKEN }}
+        CITY_LAT: ${{ secrets.CITY_LAT }}
+        CITY_LON: ${{ secrets.CITY_LON }}
+        HOPSWORKS_HOST: ${{ secrets.HOPSWORKS_HOST }}
+        HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+        HW_PROJECT_NAME: ${{ secrets.HW_PROJECT_NAME }}
+        HW_FEATURE_GN: ${{ secrets.HW_FEATURE_GN }}
+        DB_URL: ${{ secrets.DB_URL }}
+      run: python main.py

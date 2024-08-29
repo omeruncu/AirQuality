@@ -1,5 +1,5 @@
 requests
 python-dotenv
 pyyaml
-json
 pandas
+hsfs
